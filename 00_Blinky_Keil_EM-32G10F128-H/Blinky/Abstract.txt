@@ -1,0 +1,30 @@
+I made this example based on Keil MDK-ARM Blinky Example:
+C:\Keil\ARM\Boards\EnergyMicro\EFM32_Gxxx_STK\Blinky
+
+The 'Blinky' project is a simple example for Energy Micro
+EFM32 Gecko Series using Olimex EM32G210F128H Board and Olimex ARM-JTAG-Coocox
+
+Example functionality:                                                   
+
+
+ - 1 LEDs blink with a fixed speed, determined by SysTick Timer
+     working in interrupt mode
+
+
+
+The Blinky program is available in different targets:
+
+  EFM32G210F128 Flash:            runs from Internal Flash located on chip
+                                  (used for production or target debugging)
+
+CoLinkEx:
+
+You have to install the CoLinkEx USB Driver and The Keil MDK-ARM Plugin, restart MDK-ARM and then this Project should work.
+
+If you like to program this Example with the Olimex ARM-JTAG-Coocox (or another CoLinkEx)
+you have to put the following commands into "Options for Targets/User/Run User Program After Build/Run#1"
+
+"fromelf --bin --output .\Flash\Blinky.bin .\Flash\Blinky.axf"
+
+This converts your .axf File into a .bin File before Flash with the CoLinkEx.
+
