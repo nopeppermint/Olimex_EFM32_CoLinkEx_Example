@@ -52,7 +52,7 @@ int main (void)
   LED_Init();
 
   SystemCoreClockUpdate();                      /* Get Core Clock Frequency   */
-  if (SysTick_Config(SystemCoreClock / 1000)) 	/* SysTick 1 msec interrupts  */
+  if (SysTick_Config(SystemCoreClock / 1000)) 	/* SysTick 1 ms interrupts    */
 	{ 
     while (1) __NOP();                          /* Capture error              */
   }
@@ -60,7 +60,7 @@ int main (void)
   while(1) 																			/* Loop forever               */
 	{                                    
     LED_On ();                               		/* Turn on LED 'idx'          */
-    Delay(150);                                  /* Delay 50ms                 */
+    Delay(150);                                 /* Delay 150ms                */
     LED_Off();                              	 	/* Turn off LED 'idx'         */
     Delay(150);                                 /* Delay 150ms                */
   }
