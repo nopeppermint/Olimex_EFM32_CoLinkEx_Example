@@ -34,3 +34,4 @@ Version__0.1_______05.02.2013_______
 
 ___________________________
 
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/186d4a7ac27adcbf9b13761e64bb4288 "githalytics.com")](http://githalytics.com/nopeppermint/Olimex_EFM32_CoLinkEx_Example)
