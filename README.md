@@ -19,6 +19,11 @@ You need:
 For more Information and direct Links please read "Program EFM32 with CoLinkEx and Keil.pdf"
 ___________________________
 
+Version__0.3_______27.03.2013_______
+
+- add some Information about how to flash with CoLinkEx CoFlash Command Line
+___________________________
+
 Version__0.2_______06.02.2013_______
 
 - axf to bin convert is not necessary, Sorry for wrong information
