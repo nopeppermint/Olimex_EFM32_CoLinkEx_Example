@@ -17,11 +17,13 @@ You need:
 3. an Olimex EFM32 Board
 
 For more Information and direct Links please read "Program EFM32 with CoLinkEx and Keil.pdf"
+
 ___________________________
 
 Version__0.3_______27.03.2013_______
 
 - add some Information about how to flash with CoLinkEx CoFlash Command Line
+
 ___________________________
 
 Version__0.2_______06.02.2013_______
