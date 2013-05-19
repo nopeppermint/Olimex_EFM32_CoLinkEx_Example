@@ -3,7 +3,7 @@
  * @brief Universal synchronous/asynchronous receiver/transmitter (USART/UART)
  *   Peripheral API
  * @author Energy Micro AS
- * @version 3.0.2
+ * @version 3.20.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2012 Energy Micro AS, http://www.energymicro.com</b>
@@ -79,7 +79,7 @@
 #define USART_I2S_VALID(ref)     ((ref) == USART1)
 #endif
 
-#if defined(_EFM32_GIANT_FAMILY) || defined(_EFM32_WONDER_FAMILY) 
+#if defined(_EFM32_GIANT_FAMILY) || defined(_EFM32_WONDER_FAMILY)
 #define USART_I2S_VALID(ref)    (((ref) == USART1) || ((ref) == USART2))
 #endif
 
@@ -540,7 +540,7 @@ void USART_InitAsync(USART_TypeDef *usart, const USART_InitAsync_TypeDef *init)
   /* Init USART registers to HW reset state. */
   USART_Reset(usart);
 
-#if defined(_EFM32_GIANT_FAMILY) || defined(_EFM32_TINY_FAMILY) || defined(_EFM32_WONDER_FAMILY) 
+#if defined(_EFM32_GIANT_FAMILY) || defined(_EFM32_TINY_FAMILY) || defined(_EFM32_WONDER_FAMILY)
   /* Disable majority vote if specified. */
   if (init->mvdis)
   {
@@ -604,7 +604,7 @@ void USART_InitSync(USART_TypeDef *usart, const USART_InitSync_TypeDef *init)
                  ((uint32_t)init->clockMode) |
                  (init->msbf ? USART_CTRL_MSBF : 0);
 
-#if defined(_EFM32_GIANT_FAMILY) || defined(_EFM32_TINY_FAMILY) || defined(_EFM32_WONDER_FAMILY) 
+#if defined(_EFM32_GIANT_FAMILY) || defined(_EFM32_TINY_FAMILY) || defined(_EFM32_WONDER_FAMILY)
   usart->CTRL |= (init->prsRxEnable ? USART_INPUT_RXPRS : 0) |
                  (init->autoTx      ? USART_CTRL_AUTOTX : 0);
 #endif
@@ -680,7 +680,7 @@ void USART_InitIrDA(const USART_InitIrDA_TypeDef *init)
 #endif
 
 
-#if defined(_EFM32_GIANT_FAMILY) || defined(_EFM32_TINY_FAMILY) || defined(_EFM32_WONDER_FAMILY)  
+#if defined(_EFM32_GIANT_FAMILY) || defined(_EFM32_TINY_FAMILY) || defined(_EFM32_WONDER_FAMILY)
 /***************************************************************************//**
  * @brief
  *   Init USART for I2S mode.
@@ -755,12 +755,12 @@ void USART_InitPrsTrigger(USART_TypeDef *usart, const USART_PrsTriggerInit_TypeD
   /* Clear values that will be reconfigured  */
   trigctrl = usart->TRIGCTRL & ~(_USART_TRIGCTRL_RXTEN_MASK|
                                  _USART_TRIGCTRL_TXTEN_MASK|
-#if defined(_EFM32_GIANT_FAMILY) || defined(_EFM32_WONDER_FAMILY) 
+#if defined(_EFM32_GIANT_FAMILY) || defined(_EFM32_WONDER_FAMILY)
                                  _USART_TRIGCTRL_AUTOTXTEN_MASK|
 #endif
                                  _USART_TRIGCTRL_TSEL_MASK);
 
-#if defined(_EFM32_GIANT_FAMILY) || defined(_EFM32_WONDER_FAMILY) 
+#if defined(_EFM32_GIANT_FAMILY) || defined(_EFM32_WONDER_FAMILY)
   if(init->autoTxTriggerEnable)
   {
     trigctrl |= USART_TRIGCTRL_AUTOTXTEN;
@@ -810,7 +810,7 @@ void USART_Reset(USART_TypeDef *usart)
     usart->IRCTRL = _USART_IRCTRL_RESETVALUE;
   }
 
-#if defined(_EFM32_GIANT_FAMILY) || defined(_EFM32_TINY_FAMILY) || defined(_EFM32_WONDER_FAMILY) 
+#if defined(_EFM32_GIANT_FAMILY) || defined(_EFM32_TINY_FAMILY) || defined(_EFM32_WONDER_FAMILY)
   usart->INPUT = _USART_INPUT_RESETVALUE;
 
   if (USART_I2S_VALID(usart))
@@ -938,6 +938,34 @@ uint16_t USART_RxExt(USART_TypeDef *usart)
     ;
 
   return (uint16_t)(usart->RXDATAX);
+}
+
+
+/***************************************************************************//**
+ * @brief
+ *   Perform one 8 bit frame SPI transfer.
+ *
+ * @note
+ *   This function will stall if the transmit buffer is full. When a transmit
+ *   buffer becomes available, data is written and the function will wait until
+ *   the data is fully transmitted. The SPI return value is then read out and
+ *   returned.
+ *
+ * @param[in] usart
+ *   Pointer to USART peripheral register block.
+ *
+ * @param[in] data
+ *   Data to transmit.
+ *
+ * @return
+ *   Data received.
+ ******************************************************************************/
+uint8_t USART_SpiTransfer(USART_TypeDef *usart, uint8_t data)
+{
+  while (!(usart->STATUS & USART_STATUS_TXBL));
+  usart->TXDATA = (uint32_t)data;
+  while (!(usart->STATUS & USART_STATUS_TXC));
+  return (uint8_t)(usart->RXDATA);
 }
 
 

@@ -1,6 +1,6 @@
 /**************************************************************************//**
  * @file
- * @brief CMSIS Cortex-M0/M3 Peripheral Access Layer for EFM32 device series
+ * @brief CMSIS Cortex Peripheral Access Layer for EFM32 device series
  *
  * This is a convenience header file for defining the EFM32 part number on the
  * build command line, instead of specifying the part specific header file.
@@ -9,7 +9,7 @@
  *          Add "#include "efm32.h" to your source files
  * @endverbatim
  * @author Energy Micro AS
- * @version 3.0.2
+ * @version 3.20.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2012 Energy Micro AS, http://www.energymicro.com</b>

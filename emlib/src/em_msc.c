@@ -2,7 +2,7 @@
  * @file
  * @brief Flash controller (MSC) Peripheral API
  * @author Energy Micro AS
- * @version 3.0.2
+ * @version 3.20.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2012 Energy Micro AS, http://www.energymicro.com</b>
@@ -38,11 +38,9 @@
 #include "em_assert.h"
 
 #if defined(_EFM32_GIANT_FAMILY) || defined(_EFM32_WONDER_FAMILY)
-#define FLASH_PAGE_SIZE  (FLASH_SIZE<(512*1024) ? 2048 : 4096)
 #define WORDS_PER_DATA_PHASE (FLASH_SIZE<(512*1024) ? 1 : 2)
 #else
   /* _EFM32_GECKO_FAMILY || _EFM32_TINY_FAMILY */
-#define FLASH_PAGE_SIZE  (512)
 #define WORDS_PER_DATA_PHASE (1)
 #endif
 

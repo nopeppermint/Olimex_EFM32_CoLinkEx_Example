@@ -2,7 +2,7 @@
  * @file
  * @brief Clock management unit (CMU) Peripheral API
  * @author Energy Micro AS
- * @version 3.0.2
+ * @version 3.20.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2012 Energy Micro AS, http://www.energymicro.com</b>
@@ -560,6 +560,7 @@ void CMU_CalibrateConfig(uint32_t downCycles, CMU_Osc_TypeDef downSel,
 
   default:
     EFM_ASSERT(0);
+    break;
   }
 
   /* Set top value to be counted down by the downSel clock */
@@ -590,6 +591,7 @@ void CMU_CalibrateConfig(uint32_t downCycles, CMU_Osc_TypeDef downSel,
 
   default:
     EFM_ASSERT(0);
+    break;
   }
 
   CMU->CALCTRL = calCtrl;
@@ -787,7 +789,7 @@ void CMU_ClockDivSet(CMU_Clock_TypeDef clock, CMU_ClkDiv_TypeDef div)
     {
       /* Clear CMU HFLE */
       BITBAND_Peripheral(&(CMU->CTRL), _CMU_CTRL_HFLE_SHIFT, 0);
-      
+
       /* Set DIV2 factor for peripheral clock */
       BITBAND_Peripheral(&(CMU->HFCORECLKDIV),
                          _CMU_HFCORECLKDIV_HFCORECLKLEDIV_SHIFT, 0);
@@ -796,7 +798,7 @@ void CMU_ClockDivSet(CMU_Clock_TypeDef clock, CMU_ClkDiv_TypeDef div)
     {
       /* Set CMU HFLE */
       BITBAND_Peripheral(&(CMU->CTRL), _CMU_CTRL_HFLE_SHIFT, 1);
-      
+
       /* Set DIV4 factor for peripheral clock */
       BITBAND_Peripheral(&(CMU->HFCORECLKDIV),
                          _CMU_HFCORECLKDIV_HFCORECLKLEDIV_SHIFT, 1);

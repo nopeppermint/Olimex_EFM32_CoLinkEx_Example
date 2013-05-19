@@ -3,7 +3,7 @@
  * @brief CMSIS Cortex-M3 Peripheral Access Layer Header File
  *        for EFM EFM32G222F32
  * @author Energy Micro AS
- * @version 3.0.2
+ * @version 3.20.0
  ******************************************************************************
  * @section License
  * <b>(C) Copyright 2012 Energy Micro AS, http://www.energymicro.com</b>
@@ -150,6 +150,7 @@ typedef enum IRQn
 /** Flash and SRAM limits for EFM32G222F32 */
 #define FLASH_BASE           (0x00000000UL) /**< Flash Base Address */
 #define FLASH_SIZE           (0x00008000UL) /**< Available Flash Memory */
+#define FLASH_PAGE_SIZE      512            /**< Flash Memory page size */
 #define SRAM_BASE            (0x20000000UL) /**< SRAM Base Address */
 #define SRAM_SIZE            (0x00002000UL) /**< Available SRAM Memory */
 #define __CM3_REV            0x200          /**< Cortex-M3 Core revision r2p0 */

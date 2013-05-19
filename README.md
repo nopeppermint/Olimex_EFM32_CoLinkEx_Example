@@ -14,9 +14,13 @@ You need:
 
 1. Keil MDK-ARM-LITE, CoLinkEx USB Driver, CoMDKPlugin:
 2. Olimex ARM-JTAG-COOCOX (or another CoLinkEx)
-3. an Olimex EFM32 Board
+3. an Olimex EFM32 Board (at the moment only an example for the EM-32G10F128 is available)
 
 For more Information and direct Links please read "Program EFM32 with CoLinkEx and Keil.pdf"
+___________________________
+
+Version__0.4_______19.05.2013_______
+- update emlib and EFM32G to new version 3.20.0
 
 ___________________________
 

@@ -3,7 +3,7 @@
  * @brief Universal synchronous/asynchronous receiver/transmitter (USART/UART)
  *   peripheral API
  * @author Energy Micro AS
- * @version 3.0.2
+ * @version 3.20.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2012 Energy Micro AS, http://www.energymicro.com</b>
@@ -651,6 +651,7 @@ uint8_t USART_Rx(USART_TypeDef *usart);
 uint16_t USART_RxDouble(USART_TypeDef *usart);
 uint32_t USART_RxDoubleExt(USART_TypeDef *usart);
 uint16_t USART_RxExt(USART_TypeDef *usart);
+uint8_t USART_SpiTransfer(USART_TypeDef *usart, uint8_t data);
 void USART_Tx(USART_TypeDef *usart, uint8_t data);
 void USART_TxDouble(USART_TypeDef *usart, uint16_t data);
 void USART_TxDoubleExt(USART_TypeDef *usart, uint32_t data);

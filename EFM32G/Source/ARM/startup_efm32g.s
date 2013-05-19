@@ -2,7 +2,7 @@
 ; * @file
 ; * @brief    CMSIS Core Device Startup File for
 ; *           Energy Micro EFM32G Device Series
-; * @version 3.0.2
+; * @version 3.20.0
 ; * @date     03. February 2012
 ; *
 ; * @note

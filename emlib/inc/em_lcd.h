@@ -2,7 +2,7 @@
  * @file
  * @brief Liquid Crystal Display (LCD) peripheral API
  * @author Energy Micro AS
- * @version 3.0.2
+ * @version 3.20.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2012 Energy Micro AS, http://www.energymicro.com</b>

@@ -1,4 +1,14 @@
 ================ Revision history ============================================
+3.20.0:
+ - LEUART: Added LEUART_TxDmaInEM2Enable and LEUART_RxDmaInEM2Enable for
+   enabling and disabling DMA LEUART RX and Tx in EM2 support.
+
+3.0.3:
+ - Internal release for testing Wonder Gecko support.
+ - SYSTEM: Added function to enable/disable FPU access on Wonder parts,
+           SYSTEM_FpuAccessModeSet().
+ - USART: Added USART_SpiTransfer() function.
+
 3.0.2:
  - MSC: In MSC_WriteWord, added support for double word write cycle support
    (WDOUBLE) on devices with more than 512KiBytes of Flash memory. This can
@@ -6,7 +16,7 @@
  - MSC: In MSC_ErasePage, added support for devices with Flash page size
    larger than 512 bytes, like Giant and Leopard Gecko.
  - CMU: Fixed bug in CMU_ClockDivSet. Clear HFLE and HFCORECLKLEDIV flags when
-   the core runs at frequencies up to 32MHz. 
+   the core runs at frequencies up to 32MHz.
  - CMU: Fixed bug in CMU_ClockEnable: Set the HFLE and HFCORECLKLEDIV flags
    when the CORE clock runs at frequencies higher than 32MHz.
  - CMU: Fixed bug in CMU_ClockSelectSet: Set HFLE and DIV4 factor for peripheral

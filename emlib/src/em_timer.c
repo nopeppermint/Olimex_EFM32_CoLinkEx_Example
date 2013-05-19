@@ -2,7 +2,7 @@
  * @file
  * @brief Timer/counter (TIMER) Peripheral API
  * @author Energy Micro AS
- * @version 3.0.2
+ * @version 3.20.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2012 Energy Micro AS, http://www.energymicro.com</b>
@@ -31,7 +31,6 @@
  *
  ******************************************************************************/
 #include "em_timer.h"
-#include "em_cmu.h"
 #include "em_assert.h"
 
 /***************************************************************************//**
@@ -136,7 +135,7 @@ void TIMER_Init(TIMER_TypeDef *timer, const TIMER_Init_TypeDef *init)
   {
     timer->CMD = TIMER_CMD_STOP;
   }
-  
+
   /* Reset counter */
   timer->CNT = _TIMER_CNT_RESETVALUE;
 

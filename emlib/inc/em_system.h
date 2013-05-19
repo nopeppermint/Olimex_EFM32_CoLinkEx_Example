@@ -2,7 +2,7 @@
  * @file
  * @brief System API
  * @author Energy Micro AS
- * @version 3.0.2
+ * @version 3.20.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2012 Energy Micro AS, http://www.energymicro.com</b>
@@ -61,6 +61,16 @@ typedef struct
   uint8_t minor; /**< Minor revision number */
 } SYSTEM_ChipRevision_TypeDef;
 
+#if defined(_EFM32_WONDER_FAMILY)
+/** Floating point coprocessor access modes. */
+typedef enum
+{
+  fpuAccessDenied         = (0x0 << 20),  /**< Access denied, any attempted access generates a NOCP UsageFault. */
+  fpuAccessPrivilegedOnly = (0x5 << 20),  /**< Privileged access only, an unprivileged access generates a NOCP UsageFault. */
+  fpuAccessReserved       = (0xA << 20),  /**< Reserved. */
+  fpuAccessFull           = (0xF << 20)   /**< Full access. */
+} SYSTEM_FpuAccess_TypeDef;
+#endif
 
 /*******************************************************************************
  *****************************   PROTOTYPES   **********************************
@@ -68,6 +78,21 @@ typedef struct
 
 void     SYSTEM_ChipRevisionGet(SYSTEM_ChipRevision_TypeDef *rev);
 uint32_t SYSTEM_GetCalibrationValue(volatile uint32_t *regAddress);
+
+#if defined(_EFM32_WONDER_FAMILY)
+/***************************************************************************//**
+ * @brief
+ *   Set floating point coprocessor (FPU) access mode.
+ *
+ * @param[in] accessMode
+ *   Floating point coprocessor access mode. See @ref SYSTEM_FpuAccess_TypeDef
+ *   for details.
+ ******************************************************************************/
+__STATIC_INLINE void SYSTEM_FpuAccessModeSet(SYSTEM_FpuAccess_TypeDef accessMode)
+{
+  SCB->CPACR = (SCB->CPACR & ~(0xF << 20)) | accessMode;
+}
+#endif
 
 /***************************************************************************//**
  * @brief

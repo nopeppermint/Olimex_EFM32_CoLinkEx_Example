@@ -3,7 +3,7 @@
  * @brief Low Energy Universal Asynchronous Receiver/Transmitter (LEUART)
  *   Peripheral API
  * @author Energy Micro AS
- * @version 3.0.2
+ * @version 3.20.0
  *******************************************************************************
  * @section License
  * <b>(C) Copyright 2012 Energy Micro AS, http://www.energymicro.com</b>
@@ -637,6 +637,60 @@ void LEUART_TxExt(LEUART_TypeDef *leuart, uint16_t data)
   LEUART_Sync(leuart, LEUART_SYNCBUSY_TXDATAX);
 
   leuart->TXDATAX = (uint32_t)data;
+}
+
+/***************************************************************************//**
+ * @brief
+ *   Enables handling of LEUART TX by DMA in EM2
+ *
+ * @param[in] leuart
+ *   Pointer to LEUART peripheral register block.
+ *
+ * @param[in] enable
+ *   true - enables functionality
+ *   false - disables functionality
+ *
+ ******************************************************************************/
+void LEUART_TxDmaInEM2Enable(LEUART_TypeDef *leuart, bool enable)
+{
+  /* LF register about to be modified require sync. busy check */
+  LEUART_Sync(leuart, LEUART_SYNCBUSY_CTRL);
+
+  if (enable)
+  {
+    leuart->CTRL |= LEUART_CTRL_TXDMAWU;
+  }
+  else
+  {
+    leuart->CTRL &= ~LEUART_CTRL_TXDMAWU;
+  }
+}
+
+/***************************************************************************//**
+ * @brief
+ *   Enables handling of LEUART RX by DMA in EM2
+ *
+ * @param[in] leuart
+ *   Pointer to LEUART peripheral register block.
+ *
+ * @param[in] enable
+ *   true - enables functionality
+ *   false - disables functionality
+ *
+ ******************************************************************************/
+void LEUART_RxDmaInEM2Enable(LEUART_TypeDef *leuart, bool enable)
+{
+  /* LF register about to be modified require sync. busy check */
+  LEUART_Sync(leuart, LEUART_SYNCBUSY_CTRL);
+
+  if (enable)
+  {
+    leuart->CTRL |= LEUART_CTRL_RXDMAWU;
+  }
+  else
+  {
+    leuart->CTRL &= ~LEUART_CTRL_RXDMAWU;
+  }
 }
 
 
