@@ -26,6 +26,8 @@ in folder 01_Basic_Example_EFM32G880F128-STK_Keil_MDK_ARM
 - add example for EFM32G880F128-STK with CooCox CoIDE and emlib 1.3.0
 in folder 02_Basic_Example_EFM32G880F128-STK_CoIDE
 
+It's only a simple example with Systick Delay and Breakpoints in Debug Mode
+
 ___________________________
 
 Version__0.4_______19.05.2013_______
