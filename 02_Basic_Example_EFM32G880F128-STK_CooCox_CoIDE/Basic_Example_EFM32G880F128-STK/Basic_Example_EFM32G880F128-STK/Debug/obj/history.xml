@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -g -O0 -c -DEFM32G880F128 -I..\..\..\workspace\Basic_Example_EFM32G880F128-STK -I..\..\..\workspace\Basic_Example_EFM32G880F128-STK\efm32lib -I..\..\..\workspace\Basic_Example_EFM32G880F128-STK\cmsis_boot -I..\..\..\workspace -I..\..\..\workspace\Basic_Example_EFM32G880F128-STK\cmsis -I..\..\..\workspace\Basic_Example_EFM32G880F128-STK\efm32lib\inc">
+      <target file="core_cm3.o" lastModified="13f91117a33">
+         <source file="..\..\..\cmsis\core_cm3.c" lastModified="13f9110b37d"/>
+      </target>
+      <target file="system_efm32.o" lastModified="13f91117bbe">
+         <source file="..\..\..\cmsis_boot\system_efm32.c" lastModified="13f9110c83b"/>
+      </target>
+      <target file="efm32_assert.o" lastModified="13f91117be3">
+         <source file="..\..\..\efm32lib\src\efm32_assert.c" lastModified="13f9110c844"/>
+      </target>
+      <target file="efm32_system.o" lastModified="13f911179f2">
+         <source file="..\..\..\efm32lib\src\efm32_system.c" lastModified="13f9110c7a2"/>
+      </target>
+      <target file="startup_efm32.o" lastModified="13f91117b74">
+         <source file="..\..\..\cmsis_boot\startup\startup_efm32.c" lastModified="13f9110c838"/>
+      </target>
+      <target file="main.o" lastModified="13f9111b108">
+         <source file="..\..\..\main.c" lastModified="13f911170d5"/>
+      </target>
+      <target file="efm32_cmu.o" lastModified="13f91117b06">
+         <source file="..\..\..\efm32lib\src\efm32_cmu.c" lastModified="13f9110fd01"/>
+      </target>
+      <target file="efm32_emu.o" lastModified="13f91117a85">
+         <source file="..\..\..\efm32lib\src\efm32_emu.c" lastModified="13f9110fd04"/>
+      </target>
+   </processor>
+</history>

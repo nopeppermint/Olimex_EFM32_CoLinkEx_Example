@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -g -nostartfiles -Map=Basic_Example_EFM32G880F128-STK.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\Basic_Example_EFM32G880F128-STK -TC:\CooCox\CoIDE\configuration\ProgramData\Basic_Example_EFM32G880F128-STK/arm-gcc-link.ld -g">
+      <target file="Basic_Example_EFM32G880F128-STK.elf" lastModified="13f9111b2de">
+         <source file="..\obj\efm32_system.o" lastModified="13f911179f2"/>
+         <source file="..\obj\core_cm3.o" lastModified="13f91117a33"/>
+         <source file="..\obj\efm32_emu.o" lastModified="13f91117a85"/>
+         <source file="..\obj\efm32_cmu.o" lastModified="13f91117b06"/>
+         <source file="..\obj\main.o" lastModified="13f9111b108"/>
+         <source file="..\obj\startup_efm32.o" lastModified="13f91117b74"/>
+         <source file="..\obj\system_efm32.o" lastModified="13f91117bbe"/>
+         <source file="..\obj\efm32_assert.o" lastModified="13f91117be3"/>
+      </target>
+   </processor>
+</history>
