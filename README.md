@@ -22,8 +22,10 @@ ___________________________
 
 Version__0.5_______29.06.2013_______
 - add example for EFM32G880F128-STK with Keil MDK-ARM and emlib 3.20.0
+
 in folder 01_Basic_Example_EFM32G880F128-STK_Keil_MDK_ARM
 - add example for EFM32G880F128-STK with CooCox CoIDE and emlib 1.3.0
+
 in folder 02_Basic_Example_EFM32G880F128-STK_CoIDE
 
 ___________________________
