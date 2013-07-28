@@ -20,7 +20,7 @@ You need:
 For more Information and direct Links please read "Program EFM32 with CoLinkEx and Keil.pdf"
 ___________________________
 
-Version 0.6  28.07.2013
+Version__0.6_______28.07.2013_______
 -  add 02_LCD_Example_EM-32G880F128-STK, based on EFM32Gxxx_STK emlcd example f
 Energy Micro for EmBlocks and Keil MDK-ARM
 -  add J-Link to 02_Basic_Example_EFM32G880F128-STK_CooCox_CoIDE (still emlib 1.3.0)
