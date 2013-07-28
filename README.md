@@ -12,12 +12,19 @@ ___________________________
 
 You need:
 
-1. Keil MDK-ARM-LITE, CoMDKPlugin or Coocox IDE, CoLinkEx USB Driver,
-2. Olimex ARM-JTAG-COOCOX (or another CoLinkEx)
+1. Keil MDK-ARM-LITE with CoMDKPlugin or Coocox IDE or EmBlocks, CoLinkEx USB Driver,
+2. Olimex ARM-JTAG-COOCOX (or another CoLinkEx) or J-Link
 3. an Olimex EFM32 Board 
 (at the moment only an example for the EM-32G10F128 and the EFM32G880F128-STK is available)
 
 For more Information and direct Links please read "Program EFM32 with CoLinkEx and Keil.pdf"
+___________________________
+
+Version 0.6  28.07.2013
+-  add 02_LCD_Example_EM-32G880F128-STK, based on EFM32Gxxx_STK emlcd example f
+Energy Micro for EmBlocks and Keil MDK-ARM
+-  add J-Link to 02_Basic_Example_EFM32G880F128-STK_CooCox_CoIDE (still emlib 1.3.0)
+
 ___________________________
 
 Version__0.5_______29.06.2013_______

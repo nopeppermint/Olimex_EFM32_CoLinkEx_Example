@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Project version="2G - 1.7.3" name="Basic_Example_EFM32G880F128-STK">
-  <Target name="Basic_Example_EFM32G880F128-STK" isCurrent="1">
+  <Target name="CoLinkEx" isCurrent="1">
     <Device manufacturerId="3" manufacturerName="Energy Micro" chipId="27" chipName="EFM32G880F128" boardId="" boardName=""/>
     <BuildOption>
       <Compile>
@@ -20,6 +20,7 @@
         <Option name="UseMemoryLayout" value="1"/>
         <Option name="LTO" value="0"/>
         <Option name="IsNewStartupCode" value="1"/>
+        <Option name="Library" value="Not use C Library"/>
         <LinkedLibraries/>
         <MemoryAreas debugInFlashNotRAM="1">
           <Memory name="IROM1" type="ReadOnly" size="0x00020000" startValue="0x00000000"/>
@@ -44,7 +45,7 @@
     <DebugOption>
       <Option name="org.coocox.codebugger.gdbjtag.core.adapter" value="ColinkEx"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.debugMode" value="SWD"/>
-      <Option name="org.coocox.codebugger.gdbjtag.core.clockDiv" value="1M"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.clockDiv" value="500K"/>
       <Option name="org.coocox.codebugger.gdbjtag.corerunToMain" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.jlinkgdbserver" value=""/>
       <Option name="org.coocox.codebugger.gdbjtag.core.userDefineGDBScript" value=""/>
@@ -58,7 +59,70 @@
       <Option name="org.coocox.codebugger.gdbjtag.core.autoDownload" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
-      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="EFM32G_128.elf"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="./efm32g_128.elf"/>
+    </DebugOption>
+    <ExcludeFile/>
+  </Target>
+  <Target name="J-Link" isCurrent="0">
+    <Device manufacturerId="3" manufacturerName="Energy Micro" chipId="27" chipName="EFM32G880F128" boardId="" boardName=""/>
+    <BuildOption>
+      <Compile>
+        <Option name="OptimizationLevel" value="0"/>
+        <Option name="UseFPU" value="0"/>
+        <Option name="UserEditCompiler" value=""/>
+        <Includepaths>
+          <Includepath path="."/>
+        </Includepaths>
+        <DefinedSymbols>
+          <Define name="EFM32G880F128"/>
+        </DefinedSymbols>
+      </Compile>
+      <Link useDefault="0">
+        <Option name="DiscardUnusedSection" value="0"/>
+        <Option name="UserEditLinkder" value=""/>
+        <Option name="UseMemoryLayout" value="1"/>
+        <Option name="LTO" value="0"/>
+        <Option name="IsNewStartupCode" value="1"/>
+        <Option name="Library" value="Not use C Library"/>
+        <LinkedLibraries/>
+        <MemoryAreas debugInFlashNotRAM="1">
+          <Memory name="IROM1" type="ReadOnly" size="0x00020000" startValue="0x00000000"/>
+          <Memory name="IRAM1" type="ReadWrite" size="0x00004000" startValue="0x20000000"/>
+          <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
+          <Memory name="IRAM2" type="ReadWrite" size="" startValue=""/>
+        </MemoryAreas>
+        <LocateLinkFile path="c:/coocox/coide/configuration/programdata/basic_example_efm32g880f128-stk/arm-gcc-link.ld" type="0"/>
+      </Link>
+      <Output>
+        <Option name="OutputFileType" value="0"/>
+        <Option name="Path" value="./"/>
+        <Option name="Name" value="Basic_Example_EFM32G880F128-STK"/>
+        <Option name="HEX" value="0"/>
+        <Option name="BIN" value="0"/>
+      </Output>
+      <User>
+        <UserRun name="Run#1" type="Before" checked="0" value=""/>
+        <UserRun name="Run#1" type="After" checked="0" value=""/>
+      </User>
+    </BuildOption>
+    <DebugOption>
+      <Option name="org.coocox.codebugger.gdbjtag.core.adapter" value="J-Link"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.debugMode" value="SWD"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.clockDiv" value="1M"/>
+      <Option name="org.coocox.codebugger.gdbjtag.corerunToMain" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkgdbserver" value="C:\Program Files (x86)\SEGGER\JLinkARM_V474a\JLinkGDBServerCL.exe"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.userDefineGDBScript" value=""/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.targetEndianess" value="0"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkResetMode" value="Type 0: Normal"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.resetMode" value="SYSRESETREQ"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifSemihost" value="0"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifCacheRom" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ipAddress" value="127.0.0.1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.portNumber" value="2331"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.autoDownload" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="./efm32g_128.elf"/>
     </DebugOption>
     <ExcludeFile/>
   </Target>
@@ -82,9 +146,9 @@
     <File name="cmsis_boot/efm32g880f128.h" path="cmsis_boot/efm32g880f128.h" type="1"/>
     <File name="cmsis_boot/efm32g230f64.h" path="cmsis_boot/efm32g230f64.h" type="1"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
-    <File name="cmsis_boot/efm32.h" path="cmsis_boot/efm32.h" type="1"/>
     <File name="cmsis_boot/system_efm32.c" path="cmsis_boot/system_efm32.c" type="1"/>
     <File name="cmsis_boot/efm32g840f32.h" path="cmsis_boot/efm32g840f32.h" type="1"/>
+    <File name="cmsis_boot/efm32.h" path="cmsis_boot/efm32.h" type="1"/>
     <File name="cmsis_boot/efm32g280f64.h" path="cmsis_boot/efm32g280f64.h" type="1"/>
     <File name="efm32lib/inc/efm32_cmu.h" path="efm32lib/inc/efm32_cmu.h" type="1"/>
     <File name="cmsis_boot/efm32g280f32.h" path="cmsis_boot/efm32g280f32.h" type="1"/>
@@ -95,18 +159,18 @@
     <File name="cmsis" path="" type="2"/>
     <File name="cmsis_boot/efm32g210f128.h" path="cmsis_boot/efm32g210f128.h" type="1"/>
     <File name="cmsis_boot/efm32g230f32.h" path="cmsis_boot/efm32g230f32.h" type="1"/>
+    <File name="cmsis_boot/efm32g290f64.h" path="cmsis_boot/efm32g290f64.h" type="1"/>
     <File name="cmsis_boot/efm32g890f64.h" path="cmsis_boot/efm32g890f64.h" type="1"/>
     <File name="cmsis_boot/efm32g840f64.h" path="cmsis_boot/efm32g840f64.h" type="1"/>
-    <File name="cmsis_boot/efm32g290f64.h" path="cmsis_boot/efm32g290f64.h" type="1"/>
     <File name="cmsis/core_cm3.c" path="cmsis/core_cm3.c" type="1"/>
     <File name="efm32lib/inc/efm32_assert.h" path="efm32lib/inc/efm32_assert.h" type="1"/>
     <File name="efm32lib" path="" type="2"/>
     <File name="efm32lib/inc" path="" type="2"/>
     <File name="efm32lib/inc/efm32_bitband.h" path="efm32lib/inc/efm32_bitband.h" type="1"/>
     <File name="efm32lib/inc/efm32_chip.h" path="efm32lib/inc/efm32_chip.h" type="1"/>
-    <File name="cmsis_boot/efm32g200f32.h" path="cmsis_boot/efm32g200f32.h" type="1"/>
     <File name="cmsis_boot/efm32g890f32.h" path="cmsis_boot/efm32g890f32.h" type="1"/>
     <File name="cmsis_boot/efm32g200f16.h" path="cmsis_boot/efm32g200f16.h" type="1"/>
+    <File name="cmsis_boot/efm32g200f32.h" path="cmsis_boot/efm32g200f32.h" type="1"/>
     <File name="cmsis_boot/efm32g890f128.h" path="cmsis_boot/efm32g890f128.h" type="1"/>
     <File name="efm32lib/src/efm32_assert.c" path="efm32lib/src/efm32_assert.c" type="1"/>
     <File name="efm32lib/src" path="" type="2"/>
